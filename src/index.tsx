@@ -94,6 +94,9 @@ function CountryPhoneCode({ onChange, value, inputProps, lang = "zh" }: PropType
                         value: item.short,
                         label: `${item.emoji}+${item.phoneCode}`
                     };
+                    console.log('lang :>> ', lang);
+                    console.log('item.short :>> ', item.short);
+                    console.log('i18nCountries.getName(item.short, lang) :>> ', i18nCountries.getName(item.short, lang));
                     return (
                         <Select.Option {...fix}>
                             {item.emoji} {i18nCountries.getName(item.short, lang)} {item.phoneCode}
