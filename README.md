@@ -2,7 +2,8 @@
 
 Country phone input component as standard Ant.Design form item.
 
-Currently only support Chinese.
+Currently supports 53 languages (ISO 3166-1 Alpha-2)
+Default language is Chinese (zh)
 
 ![Preview](asset/screenshot.png)
 
@@ -45,7 +46,8 @@ const WrappedApp = Form.create({
   mapPropsToFields(props) {
     return {
       countryPhone: Form.createFormField({
-        value: { code: 86, phone: "13012345678", short: "CN" }
+        value: { code: 86, phone: "13012345678", short: "CN" },
+        lang: en
       })
     };
   }
@@ -54,3 +56,59 @@ const WrappedApp = Form.create({
 const rootElement = document.getElementById("root");
 ReactDOM.render(<WrappedApp />, rootElement);
 ```
+
+### Supported languages (ISO 639-1)
+
+- `ar`: Arabic
+- `az`: Azerbaijani
+- `be`: Belorussian
+- `bg`: Bulgarian
+- `bn`: Bengali
+- `bs`: Bosnian
+- `ca`: Catalan
+- `cs`: Czech
+- `da`: Danish
+- `de`: German
+- `en`: English
+- `es`: Spanish
+- `et`: Estonian
+- `fa`: Persian
+- `fi`: Finnish
+- `fr`: French
+- `gl`: Galician
+- `el`: Greek
+- `he`: Hebrew
+- `hi`: Hindi
+- `hr`: Croatian
+- `hu`: Hungarian
+- `hy`: Armenian
+- `it`: Italian
+- `id`: Indonesian
+- `ja`: Japanese
+- `ka`: Georgian
+- `kk`: Kazakh
+- `ko`: Korean
+- `ky`: Kyrgyz
+- `lt`: Lithuanian
+- `lv`: Latvian
+- `mk`: Macedonian
+- `mn`: Mongolian
+- `ms`: Malay
+- `nb`: Norwegian Bokmål
+- `nl`: Dutch
+- `nn`: Norwegian Nynorsk
+- `pl`: Polish
+- `pt`: Portuguese
+- `ro`: Romanian
+- `ru`: Russian
+- `sk`: Slovak
+- `sl`: Slovene
+- `sr`: Serbian
+- `sv`: Swedish
+- `th`: Thai
+- `tr`: Turkish
+- `uk`: Ukrainian
+- `ur`: Urdu
+- `uz`: Uzbek
+- `zh`: Chinese
+- `vi`: Vietnamese

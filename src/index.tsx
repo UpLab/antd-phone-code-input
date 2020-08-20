@@ -7,6 +7,7 @@ import React, {
     forwardRef
 } from 'react';
 import { Input, Select } from 'antd';
+import i18nCountries from 'i18n-iso-countries';
 import countries, { ICountry } from './source';
 
 const InputGroup = Input.Group;
@@ -15,6 +16,7 @@ interface PropTypes {
     onChange?: Function;
     value?: CountryPhoneCodeValue;
     inputProps?: any;
+    lang: string;
 }
 
 interface CountryPhoneCodeValue {
@@ -23,7 +25,7 @@ interface CountryPhoneCodeValue {
     short?: string;
 }
 
-function CountryPhoneCode({ onChange, value, inputProps }: PropTypes, ref: any) {
+function CountryPhoneCode({ onChange, value, inputProps, lang = "zh" }: PropTypes, ref: any) {
     const defaultCountry: ICountry | undefined = useMemo(() => {
         return countries.find(c => c.short === 'CN');
     }, []);
@@ -94,7 +96,7 @@ function CountryPhoneCode({ onChange, value, inputProps }: PropTypes, ref: any) 
                     };
                     return (
                         <Select.Option {...fix}>
-                            {item.emoji} {item.zh} {item.phoneCode}
+                            {item.emoji} {i18nCountries.getName(item.short, lang)} {item.phoneCode}
                         </Select.Option>
                     );
                 })}

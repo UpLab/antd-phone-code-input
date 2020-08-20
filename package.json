@@ -33,5 +33,8 @@
   },
   "peerDependencies": {
     "antd": "^4.5.2"
+  },
+  "dependencies": {
+    "i18n-iso-countries": "6.0.0"
   }
 }
