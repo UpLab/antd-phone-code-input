@@ -17,6 +17,7 @@ interface PropTypes {
     onChange?: Function;
     value?: CountryPhoneCodeValue;
     inputProps?: any;
+    selectProps?: any;
     containerProps?: any;
     lang: string;
     makeShortName?: Function;
@@ -30,7 +31,7 @@ interface CountryPhoneCodeValue {
 
 const _getKeyValue_ = (key: string) => (obj: Record<string, any>) => obj[key];
 
-function CountryPhoneCode({ onChange, value, inputProps, containerProps, lang = "zh", makeShortName }: PropTypes, ref: any) {
+function CountryPhoneCode({ onChange, value, inputProps, selectProps, containerProps, lang = "zh", makeShortName }: PropTypes, ref: any) {
     const defaultCountry: ICountry | undefined = useMemo(() => {
         return countries.find(c => c.short === 'CN');
     }, []);
@@ -91,12 +92,11 @@ function CountryPhoneCode({ onChange, value, inputProps, containerProps, lang = 
     return (
         <InputGroup compact {...containerProps}>
             <Select
-                bordered={false}
                 value={country && country.short}
-                style={{ width: "100px" }}
                 dropdownMatchSelectWidth={false}
                 optionLabelProp="label"
                 onChange={handleCountryChange}
+                {...selectProps}
             >
                 {countries.map(item => {
                     const fix = {
@@ -113,8 +113,6 @@ function CountryPhoneCode({ onChange, value, inputProps, containerProps, lang = 
                 })}
             </Select>
             <Input
-                bordered={false}
-                style={{ width: "calc(100% - 100px)" }}
                 ref={phoneRef}
                 onChange={handlePhoneChange}
                 value={value && value.phone}
