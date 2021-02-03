@@ -1,3 +1,66 @@
+import ar from 'i18n-iso-countries/langs/ar.json';
+import az from 'i18n-iso-countries/langs/az.json';
+import be from 'i18n-iso-countries/langs/be.json';
+import bg from 'i18n-iso-countries/langs/bg.json';
+import bn from 'i18n-iso-countries/langs/bn.json';
+import bs from 'i18n-iso-countries/langs/bs.json';
+import ca from 'i18n-iso-countries/langs/ca.json';
+import cs from 'i18n-iso-countries/langs/cs.json';
+import da from 'i18n-iso-countries/langs/da.json';
+import de from 'i18n-iso-countries/langs/de.json';
+import el from 'i18n-iso-countries/langs/el.json';
+import en from 'i18n-iso-countries/langs/en.json';
+import es from 'i18n-iso-countries/langs/es.json';
+import et from 'i18n-iso-countries/langs/et.json';
+import fa from 'i18n-iso-countries/langs/fa.json';
+import fi from 'i18n-iso-countries/langs/fi.json';
+import fr from 'i18n-iso-countries/langs/fr.json';
+import gl from 'i18n-iso-countries/langs/gl.json';
+import he from 'i18n-iso-countries/langs/he.json';
+import hi from 'i18n-iso-countries/langs/hi.json';
+import hr from 'i18n-iso-countries/langs/hr.json';
+import hu from 'i18n-iso-countries/langs/hu.json';
+import hy from 'i18n-iso-countries/langs/hy.json';
+import id from 'i18n-iso-countries/langs/id.json';
+import it from 'i18n-iso-countries/langs/it.json';
+import ja from 'i18n-iso-countries/langs/ja.json';
+import ka from 'i18n-iso-countries/langs/ka.json';
+import kk from 'i18n-iso-countries/langs/kk.json';
+import ko from 'i18n-iso-countries/langs/ko.json';
+import ky from 'i18n-iso-countries/langs/ky.json';
+import lt from 'i18n-iso-countries/langs/lt.json';
+import lv from 'i18n-iso-countries/langs/lv.json';
+import mk from 'i18n-iso-countries/langs/mk.json';
+import mn from 'i18n-iso-countries/langs/mn.json';
+import ms from 'i18n-iso-countries/langs/ms.json';
+import nb from 'i18n-iso-countries/langs/nb.json';
+import nl from 'i18n-iso-countries/langs/nl.json';
+import nn from 'i18n-iso-countries/langs/nn.json';
+import pl from 'i18n-iso-countries/langs/pl.json';
+import pt from 'i18n-iso-countries/langs/pt.json';
+import ro from 'i18n-iso-countries/langs/ro.json';
+import ru from 'i18n-iso-countries/langs/ru.json';
+import sk from 'i18n-iso-countries/langs/sk.json';
+import sl from 'i18n-iso-countries/langs/sl.json';
+import sr from 'i18n-iso-countries/langs/sr.json';
+import sv from 'i18n-iso-countries/langs/sv.json';
+import th from 'i18n-iso-countries/langs/th.json';
+import tr from 'i18n-iso-countries/langs/tr.json';
+import uk from 'i18n-iso-countries/langs/uk.json';
+import ur from 'i18n-iso-countries/langs/ur.json';
+import uz from 'i18n-iso-countries/langs/uz.json';
+import vi from 'i18n-iso-countries/langs/vi.json';
+import zh from 'i18n-iso-countries/langs/zh.json';
+
+export {
+    ar, az, be, bg, bn, bs, ca, cs, da,
+    de, el, en, es, et, fa, fi, fr, gl,
+    he, hi, hr, hu, hy, id, it, ja, ka,
+    kk, ko, ky, lt, lv, mk, mn, ms, nb,
+    nl, nn, pl, pt, ro, ru, sk, sl, sr,
+    sv, th, tr, uk, ur, uz, vi, zh
+}
+
 export interface ICountry {
     short: string;
     emoji: string;

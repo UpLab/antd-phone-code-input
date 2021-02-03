@@ -8,7 +8,8 @@ import React, {
 } from 'react';
 import { Input, Select } from 'antd';
 import i18nCountries from 'i18n-iso-countries';
-import countries, { ICountry } from './source';
+import countries, * as langs from './source';
+import { ICountry } from './source';
 
 const InputGroup = Input.Group;
 
@@ -16,7 +17,9 @@ interface PropTypes {
     onChange?: Function;
     value?: CountryPhoneCodeValue;
     inputProps?: any;
+    containerProps?: any;
     lang: string;
+    makeShortName?: Function;
 }
 
 interface CountryPhoneCodeValue {
@@ -25,7 +28,9 @@ interface CountryPhoneCodeValue {
     short?: string;
 }
 
-function CountryPhoneCode({ onChange, value, inputProps, lang = "zh" }: PropTypes, ref: any) {
+const _getKeyValue_ = (key: string) => (obj: Record<string, any>) => obj[key];
+
+function CountryPhoneCode({ onChange, value, inputProps, containerProps, lang = "zh", makeShortName }: PropTypes, ref: any) {
     const defaultCountry: ICountry | undefined = useMemo(() => {
         return countries.find(c => c.short === 'CN');
     }, []);
@@ -33,6 +38,11 @@ function CountryPhoneCode({ onChange, value, inputProps, lang = "zh" }: PropType
     const [country, setCountry] = useState<ICountry | undefined>(defaultCountry);
     const [phone, setPhone] = useState<string | undefined>();
     const phoneRef = useRef(null);
+
+    useEffect(()=> {
+        if(lang !== 'default')
+            i18nCountries.registerLocale(_getKeyValue_(lang)(langs))
+    }, [lang])
 
     useEffect(() => {
         if (value !== undefined) {
@@ -79,7 +89,7 @@ function CountryPhoneCode({ onChange, value, inputProps, lang = "zh" }: PropType
     }, [setPhone, country, triggerChange]);
 
     return (
-        <InputGroup compact>
+        <InputGroup compact {...containerProps}>
             <Select
                 bordered={false}
                 value={country && country.short}
@@ -94,12 +104,10 @@ function CountryPhoneCode({ onChange, value, inputProps, lang = "zh" }: PropType
                         value: item.short,
                         label: `${item.emoji}+${item.phoneCode}`
                     };
-                    console.log('lang :>> ', lang);
-                    console.log('item.short :>> ', item.short);
-                    console.log('i18nCountries.getName(item.short, lang) :>> ', i18nCountries.getName(item.short, lang));
+                    const countryName = i18nCountries.getName(item.short, lang);
                     return (
                         <Select.Option {...fix}>
-                            {item.emoji} {i18nCountries.getName(item.short, lang)} {item.phoneCode}
+                            {item.emoji} {typeof makeShortName === "function" ? makeShortName(countryName): countryName} {item.phoneCode}
                         </Select.Option>
                     );
                 })}
