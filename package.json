@@ -1,6 +1,6 @@
 {
   "name": "@uplab/antd-country-phone-input",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "Country phone input component as standard Ant.Design form item",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",

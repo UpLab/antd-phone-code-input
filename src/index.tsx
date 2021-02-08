@@ -102,7 +102,7 @@ function CountryPhoneCode({ onChange, value, inputProps, selectProps, containerP
                     const fix = {
                         key: item.short,
                         value: item.short,
-                        label: `${item.emoji}+${item.phoneCode}`
+                        label: `${item.emoji} +${item.phoneCode}`
                     };
                     const countryName = i18nCountries.getName(item.short, lang);
                     return (
